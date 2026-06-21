@@ -28,42 +28,54 @@ export default function QuizPage() {
   }
 
   function back() {
-    if (idx === 0) {
-      router.push('/');
-    } else {
-      setIdx(idx - 1);
-    }
+    if (idx === 0) router.push('/');
+    else setIdx(idx - 1);
   }
 
   const pct = Math.round((idx / total) * 100);
 
   return (
     <main className="screen quiz">
-      <div className="progress-wrap">
-        <div className="progress-meta">
-          <span>Q{idx + 1}</span>
-          <span>
-            {idx + 1} / {total}
+      <div className="win">
+        <div className="win-title">
+          <span className="win-title-text">전생테스트 — [{idx + 1}/{total}]</span>
+          <span className="win-btns">
+            <i>─</i>
+            <i>□</i>
+            <i>✕</i>
           </span>
         </div>
-        <div className="progress-bar">
-          <div className="progress-fill" style={{ width: `${pct}%` }} />
+        <div className="win-body">
+          <div className="progress-wrap">
+            <div className="progress-bar">
+              <div className="progress-fill" style={{ width: `${pct}%` }} />
+            </div>
+            <div className="progress-meta">
+              <span>
+                {idx + 1} / {total}
+              </span>
+              <span>{pct}%</span>
+            </div>
+          </div>
+
+          <h2 className="q-text">
+            Q{idx + 1}. {q.q}
+          </h2>
+
+          <div className="options">
+            {q.options.map((opt, i) => (
+              <button key={i} className="option" onClick={() => choose(opt)}>
+                <span className="opt-mark">{i === 0 ? '①' : '②'}</span>
+                {opt.text}
+              </button>
+            ))}
+          </div>
+
+          <button className="q-back" onClick={back}>
+            ◀ 이전
+          </button>
         </div>
       </div>
-
-      <h2 className="q-text">{q.q}</h2>
-
-      <div className="options">
-        {q.options.map((opt, i) => (
-          <button key={i} className="option" onClick={() => choose(opt)}>
-            {opt.text}
-          </button>
-        ))}
-      </div>
-
-      <button className="q-back" onClick={back}>
-        ← 이전
-      </button>
     </main>
   );
 }

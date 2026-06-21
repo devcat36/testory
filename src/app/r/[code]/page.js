@@ -32,28 +32,37 @@ export default function ResultPage({ params }) {
 
   return (
     <main className="screen result">
-      <div className="result-card">
-        <p className="eyebrow">나의 전생 영혼동물</p>
-        <div className="result-emoji">{ch.emoji}</div>
-        <h1 className="result-name">{ch.name}</h1>
-        <p className="result-animal">{ch.animal}</p>
-        <p className="result-tagline">“{ch.tagline}”</p>
-        <div className={`rarity-pill ${rl.cls}`}>
-          전체의 {ch.rarity}% · {rl.label}
+      <div className="win">
+        <div className="win-title">
+          <span className="win-title-text">★ 나의 전생 영혼동물</span>
+          <span className="win-btns">
+            <i>─</i>
+            <i>□</i>
+            <i>✕</i>
+          </span>
         </div>
-        <p className="result-desc">{ch.description}</p>
-        <div className="result-strengths">
-          <span>강점</span>
-          {ch.strengths}
+        <div className="win-body">
+          <p className="eyebrow blink">＼ 두구두구… 결과 발표! ／</p>
+          <div className="result-emoji">{ch.emoji}</div>
+          <h1 className="result-name">{ch.name}</h1>
+          <p className="result-animal">{ch.animal}</p>
+          <div className={`rarity-pill ${rl.cls}`}>
+            전체의 {ch.rarity}% · {rl.label}
+          </div>
+          <p className="result-tagline">“{ch.tagline}”</p>
+          <p className="result-desc">{ch.description}</p>
+          <div className="result-strengths">
+            <b>★ 강점</b> {ch.strengths}
+          </div>
+
+          <ShareBar code={ch.code} name={ch.name} shareCopy={ch.shareCopy} />
+
+          <Link href="/" className="btn btn-ghost">
+            ↻ 다시 하기
+          </Link>
+          <p className="foot">ⓒ 2026 testory ⊹ 친구에게 공유 ㄱㄱ</p>
         </div>
       </div>
-
-      <ShareBar code={ch.code} name={ch.name} shareCopy={ch.shareCopy} />
-
-      <Link href="/" className="btn btn-ghost" style={{ maxWidth: 360 }}>
-        다시 하기
-      </Link>
-      <p className="foot">TESTORY</p>
     </main>
   );
 }

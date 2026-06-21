@@ -35,15 +35,15 @@ export default function ShareBar({ code, name, shareCopy }) {
 
   return (
     <div className="share">
-      <button className="btn btn-primary" onClick={share}>
-        공유하기
+      <button className="btn btn-pink" onClick={share}>
+        ✉ 공유하기
       </button>
       <div className="share-row">
-        <button className="btn btn-ghost" onClick={copy}>
-          {copied ? '복사됨!' : '링크 복사'}
+        <button className="btn btn-cyan" onClick={copy}>
+          {copied ? '복사완료!' : '🔗 링크복사'}
         </button>
         <a className="btn btn-ghost" href={`/og/${code}.png`} download={`testory-${code}.png`}>
-          카드 저장
+          💾 카드저장
         </a>
       </div>
     </div>
