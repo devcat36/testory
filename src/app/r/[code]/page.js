@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { CODES, getCharacter } from '@/lib/data';
+import { ASSET_VER, CODES, getCharacter } from '@/lib/data';
 import { rarityLabel } from '@/lib/rarity';
 import ShareBar from '@/components/ShareBar';
 
@@ -15,7 +15,7 @@ export function generateMetadata({ params }) {
   if (!ch) return {};
   const title = `나는 ${ch.name} · Testory`;
   const desc = ch.shareCopy;
-  const img = `/og/${ch.code}.png`;
+  const img = `/og/${ch.code}.png?v=${ASSET_VER}`;
   const url = `/r/${ch.code}/`;
   return {
     title,

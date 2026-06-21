@@ -1,4 +1,7 @@
 import './globals.css';
+import { ASSET_VER } from '@/lib/data';
+
+const defaultOg = `/og/default.png?v=${ASSET_VER}`;
 
 export const metadata = {
   metadataBase: new URL('https://testory.turtlelab.cc'),
@@ -9,13 +12,13 @@ export const metadata = {
     siteName: 'Testory',
     title: 'Testory — 나의 전생 영혼동물',
     description: '나의 전생 영혼동물은 어떤 모습일까? 지금 바로 확인!',
-    images: ['/og/default.png'],
+    images: [defaultOg],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Testory — 나의 전생 영혼동물',
     description: '나의 전생 영혼동물은 어떤 모습일까? 지금 바로 확인!',
-    images: ['/og/default.png'],
+    images: [defaultOg],
   },
 };
 
