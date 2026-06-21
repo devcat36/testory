@@ -1,0 +1,10 @@
+.git
+node_modules
+.next
+out
+public/og
+discovery
+req
+deploy
+*.md
+.DS_Store
